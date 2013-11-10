@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'madeby'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +52,10 @@ ROOT_URLCONF = 'madebynortheastern.urls'
 
 WSGI_APPLICATION = 'madebynortheastern.wsgi.application'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+AWS_ACCESS_KEY_ID = os.environ.get('S3_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('S3_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET')
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
